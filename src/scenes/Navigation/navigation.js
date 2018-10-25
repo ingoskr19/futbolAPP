@@ -17,7 +17,7 @@ import WebView from '../WebView';
       title: 'Team Detail'
     })
   },
-  TeamDetailScreen: {
+  WebViewScreen: {
     screen: WebView,
     navigationOptions: () => ({
       title: 'Sitio Web'

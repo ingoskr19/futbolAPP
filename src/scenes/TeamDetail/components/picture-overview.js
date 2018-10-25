@@ -7,16 +7,16 @@ const PictureOverview = (props) => (
         <Image source={{ uri: props.team.strTeamBadge }} style={styles.teamImage}/>
         <Text style={styles.teamName}>{props.team.strTeam}</Text>
         <View style={styles.teamSocialNetworks}>
-            <SocialIcon icon="facebook" size="24"
-            onPress={()=>{props.navigation.navigate('WebView', {navigation: props.navigation})}} />
+            <SocialIcon icon="facebook" size={24} style={styles.socialIcon}
+            onPress={()=>{props.navigation.navigate('WebViewScreen', {navigation: props.navigation})}} />
             
-            <SocialIcon icon="twitter" size="24"
-            onPress={()=>{props.navigation.navigate('WebView', {navigation: props.navigation})}}  />
+            <SocialIcon icon="twitter" size={24} style={styles.socialIcon}
+            onPress={()=>{props.navigation.navigate('WebViewScreen', {navigation: props.navigation})}}  />
             
-            <SocialIcon icon="youtube" size="24"
-            onPress={()=>{props.navigation.navigate('WebView', {navigation: props.navigation})}} />
+            <SocialIcon icon="youtube" size={24} style={styles.socialIcon}
+            onPress={()=>{props.navigation.navigate('WebViewScreen', {navigation: props.navigation})}} />
             
-            <SocialIcon icon="share-square" size="24"
+            <SocialIcon icon="share-square" size={24} style={styles.socialIcon}
             onPress={()=>{props.navigation.navigate('WebView', {navigation: props.navigation})}} />
         </View>
     </View>
@@ -24,7 +24,7 @@ const PictureOverview = (props) => (
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1,
+        flex: 2,
         flexDirection: 'column',
         height: 250,
         alignContent: 'space-around',
@@ -34,7 +34,14 @@ const styles = StyleSheet.create({
     teamSocialNetworks: {
         flex: 1,
         flexDirection: 'row',
-        alignContent: 'space-between'
+        textAlign: 'center'
+    },
+    teamName: {
+        color: '#c0cf'
+    },
+    socialIcon: {
+        flex: 1,
+        alignSelf: 'center'
     },
     teamImage: {
         flex: 3,

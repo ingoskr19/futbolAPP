@@ -27,7 +27,7 @@ class HttpTeams {
         try{
             const url = `${ API_BASE }${HTTP_LEAGUES.getTeamById}`;
             const data = await httpBase.baseGet(url,config);
-            return data.player;
+            return data.teams;
         } catch (error) {
             console.warn(error);//TODO
         }

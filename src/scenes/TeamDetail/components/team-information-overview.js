@@ -1,7 +1,7 @@
 import React from 'react';
-import { Text, View } from 'react-native';
+import { Text, View, StyleSheet } from 'react-native';
 
-const TeamInformationOverview = (props) => (
+export default TeamInformationOverview = (props) => (
     <View>
         <Text style={styles.teamName}>{props.team.strTeam}</Text>
         <Text style={styles.teamManager}>{props.team.strManager}</Text>
@@ -32,5 +32,3 @@ const styles = StyleSheet.create({
         flex: 1
     }
 });
-
-export default TeamInformationOverview;
