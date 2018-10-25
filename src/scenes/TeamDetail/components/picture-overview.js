@@ -2,10 +2,14 @@ import React from 'react';
 import { Text, View, StyleSheet, Image } from 'react-native';
 import SocialIcon from './social-network-icon';
 
-const PictureOverview = (props) => (
+const PictureOverview = (props) => {
+    
+    const team = props.team[0];
+    
+    return (
     <View style={styles.container}>
-        <Image source={{ uri: props.team.strTeamBadge }} style={styles.teamImage}/>
-        <Text style={styles.teamName}>{props.team.strTeam}</Text>
+        <Text style={styles.teamName}>{team.strTeam}</Text>
+        <Image source={{ uri: team.strTeamBadge }} style={styles.teamImage}/>
         <View style={styles.teamSocialNetworks}>
             <SocialIcon icon="facebook" size={24} style={styles.socialIcon}
             onPress={()=>{props.navigation.navigate('WebViewScreen', {navigation: props.navigation})}} />
@@ -20,24 +24,27 @@ const PictureOverview = (props) => (
             onPress={()=>{props.navigation.navigate('WebView', {navigation: props.navigation})}} />
         </View>
     </View>
-);
+    );
+};
 
 const styles = StyleSheet.create({
     container: {
-        flex: 2,
+        flex: 1,
         flexDirection: 'column',
-        height: 250,
-        alignContent: 'space-around',
         backgroundColor: '#fff',
         marginBottom: 2,
     },
     teamSocialNetworks: {
         flex: 1,
         flexDirection: 'row',
-        textAlign: 'center'
+        textAlign: 'center',
+        alignContent: 'space-between'
     },
     teamName: {
-        color: '#c0cf'
+        backgroundColor: '#fff',
+        alignSelf: 'center',
+        fontSize: 18,
+        fontWeight: 'bold'
     },
     socialIcon: {
         flex: 1,
@@ -45,8 +52,9 @@ const styles = StyleSheet.create({
     },
     teamImage: {
         flex: 3,
-        marginTop: 10,
-        width: 190,
+        marginTop: 2,
+        width: 100,
+        resizeMode: 'contain',
         alignSelf: 'center',
     },
     playerFooter: {

@@ -27,8 +27,8 @@ export default class TeamDetail extends Component {
         this.getTeamData();
     }
 
-    firstRoute = (team) => (
-        <View style={[styles.container, { backgroundColor: '#ff4081' }]}>
+    firstRoute = () => (
+        <View>
             <TeamInformationOverview team={this.state.team}/>
         </View>
     );
@@ -36,7 +36,7 @@ export default class TeamDetail extends Component {
       /* */
       /**<PlayersOverview playersList={data} />; */
     secondRoute = () => (
-        <View style={[styles.container, { backgroundColor: '#673ab7' }]}>
+        <View>
             <PlayersOverview playersList={this.state.playersList} navigation={this.props.navigation}/>
         </View>
     );
@@ -62,8 +62,8 @@ export default class TeamDetail extends Component {
     render() {
         return ((this.state.team) ?
             <View style={styles.container}>
-                <PictureOverview team={this.state.team} />
-                {this.state.playersList ? <TabView
+                <PictureOverview team={this.state.team} style={styles.teamPicture} />
+                {this.state.playersList ? <TabView style={styles.tabView}
                     navigationState={this.state}
                     renderScene={SceneMap({
                         first: this.firstRoute,
@@ -81,5 +81,12 @@ export default class TeamDetail extends Component {
 const styles = StyleSheet.create({
     container: {
         flex: 1
+    },
+    teamPicture: {
+        flex: 0.1,
+        backgroundColor: '#d0efb1'
+    },
+    tabView: {
+        flex: 3
     }
 });

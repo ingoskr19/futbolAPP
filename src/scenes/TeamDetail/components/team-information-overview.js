@@ -1,34 +1,47 @@
 import React from 'react';
-import { Text, View, StyleSheet } from 'react-native';
+import { Text, View, StyleSheet, ScrollView } from 'react-native';
 
-export default TeamInformationOverview = (props) => (
-    <View>
-        <Text style={styles.teamName}>{props.team.strTeam}</Text>
-        <Text style={styles.teamManager}>{props.team.strManager}</Text>
-        <Text style={styles.teamWebsite}>{props.team.strWebsite}</Text>
-        <Text style={styles.teamCountry}>{props.team.strCountry}</Text>
-    </View>
-);
+export default TeamInformationOverview = (props) => {
+    const team = props.team[0];
+
+    return (<ScrollView>
+        <View style={styles.container}>
+            <Text style={styles.title}>Other Name</Text>
+            <Text style={styles.text}>{team.strAlternate}</Text>
+
+            <Text style={styles.title}>D.T</Text>
+            <Text style={styles.text}>{team.strManager}</Text>
+
+            <Text style={styles.title}>Formation Year</Text>
+            <Text style={styles.text}>{team.intFormedYear}</Text>
+
+            <Text style={styles.title}>Stadium</Text>
+            <Text style={styles.text}>{team.strStadium} - {team.strStadiumLocation}</Text>
+
+            <Text style={styles.title}>Capacity</Text>
+            <Text style={styles.text}>{team.intStadiumCapacity}</Text>
+
+            <Text style={styles.title}>History</Text>
+            <Text style={styles.text}>{team.strDescriptionEN}</Text>
+        </View>
+    </ScrollView>
+    );
+};
 
 const styles = StyleSheet.create({
-    teamName: {
+    container: {
+        flex: 1,
         backgroundColor: '#fff',
-        fontSize: 20,
-        flex: 1
     },
-    teamCountry: {
-        backgroundColor: '#fff',
-        fontSize: 20,
-        flex: 1
+    text: {
+        color: '#d0efb1',
+        fontSize: 16,
+        marginBottom: 10,
     },
-    teamWebsite: {
+    title: {
         backgroundColor: '#fff',
-        fontSize: 20,
-        flex: 1
+        fontSize: 13,
+        color: 'red',
+        fontWeight: 'bold',
     },
-    teamManager: {
-        backgroundColor: '#fff',
-        fontSize: 20,
-        flex: 1
-    }
 });

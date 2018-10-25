@@ -35,7 +35,7 @@ class Teams extends Component {
     keyExtractor = (item) => item.idTeam.toString()
     render() {
         return (
-            <ScrollView>
+            <ScrollView style={styles.container}>
                 <SectionList
                     renderItem={this.renderItem}
                     ItemSeparatorComponent={this.itemSeparator}
@@ -51,5 +51,11 @@ class Teams extends Component {
     }
 
 }
+
+const styles = StyleSheet.create({
+    container: {
+        backgroundColor: '#fff'
+    }
+});
 
 export default Teams;
