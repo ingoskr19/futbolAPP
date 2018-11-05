@@ -5,6 +5,7 @@ import PictureOverview from './components/picture-overview';
 import { TabView, TabBar, SceneMap } from 'react-native-tab-view';
 import TeamInformationOverview from './components/team-information-overview';
 import PlayersOverview from './components/players-overview';
+import { Container, Content } from 'native-base';
 
 /*<TeamInformationOverview team={team}/>*/
 
@@ -29,7 +30,7 @@ export default class TeamDetail extends Component {
 
     firstRoute = () => (
         <View>
-            <TeamInformationOverview team={this.state.team}/>
+            <TeamInformationOverview team={this.state.team} navigation={this.props.navigation}/>
         </View>
     );
     
@@ -61,32 +62,21 @@ export default class TeamDetail extends Component {
 
     render() {
         return ((this.state.team) ?
-            <View style={styles.container}>
-                <PictureOverview team={this.state.team} style={styles.teamPicture} />
-                {this.state.playersList ? <TabView style={styles.tabView}
+                <Container>
+                <PictureOverview team={this.state.team} navigation={this.props.navigation}/>
+                {this.state.playersList ? <TabView 
                     navigationState={this.state}
                     renderScene={SceneMap({
                         first: this.firstRoute,
                         second: this.secondRoute,
                     })}
                     onIndexChange={index => this.setState({ index })}
-                    initialLayout={{ width: Dimensions.get('window').width, height: Dimensions.get('window').height - 10 }}
-                /> : null}
-            </View>
-            : <ActivityIndicator title="Cargando..." size="large" color="#7efb7b" />
+                /> : <ActivityIndicator size="large" color="#7efb7b" />}
+            </Container>
+            : <ActivityIndicator size="large" color="#7efb7b" />
         );
     }
 }
 
 const styles = StyleSheet.create({
-    container: {
-        flex: 1
-    },
-    teamPicture: {
-        flex: 0.1,
-        backgroundColor: '#d0efb1'
-    },
-    tabView: {
-        flex: 3
-    }
 });

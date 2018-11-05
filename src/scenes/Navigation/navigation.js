@@ -2,7 +2,7 @@ import React from 'react';
 import {StackNavigator} from 'react-navigation';
 import Teams from '../Teams';
 import TeamDetail from '../TeamDetail';
-import WebView from '../WebView';
+import WebViewScene from '../WebView';
 
  export const TeamsNavigator = StackNavigator({
   TeamsScreen: {
@@ -18,7 +18,7 @@ import WebView from '../WebView';
     })
   },
   WebViewScreen: {
-    screen: WebView,
+    screen: WebViewScene,
     navigationOptions: () => ({
       title: 'Sitio Web'
     })

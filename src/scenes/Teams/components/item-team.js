@@ -4,7 +4,7 @@ import Icon from 'react-native-vector-icons/dist/FontAwesome';
 
 const ItemTeam = (props) => (
     <TouchableHighlight
-        onPress={() => {props.navigation.navigate('TeamDetailScreen', { idTeam: props.team.idTeam })}}
+        onPress={() => {props.navigation.navigate('TeamDetailScreen', { navigation: props.navigation, idTeam: props.team.idTeam })}}
         underlayColor="#C0C0C0"
     >
         <View style={styles.container}>
